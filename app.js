@@ -31,38 +31,38 @@ web3.eth.getBalance( accountAddress2 )
 
 // Make transaction between accounts
 // send to account 2
-var txObject = {
-    from:     '0x' + accountAddress1,
-    to:       '0x' + accountAddress2,
-    value:    web3.utils.toHex( web3.utils.toWei('0.2', 'ether') ),
-    gasLimit: web3.utils.toHex( 21000 ),
-    gasPrice: web3.utils.toHex( web3.utils.toWei('10', 'gwei') )
-}
+// var txObject = {
+//     from:     '0x' + accountAddress1,
+//     to:       '0x' + accountAddress2,
+//     value:    web3.utils.toHex( web3.utils.toWei('0.2', 'ether') ),
+//     gasLimit: web3.utils.toHex( 21000 ),
+//     gasPrice: web3.utils.toHex( web3.utils.toWei('10', 'gwei') )
+// }
 
-web3.eth.accounts.signTransaction( txObject, privateKey1 )
-.then( (signedTx) => {
-    return web3.eth.sendSignedTransaction( signedTx.rawTransaction )
-})
-.then( (result) => {
-    console.log( 'sent signed tx: ', JSON.stringify(result, null, ' '));
-})
-.catch( (error) => {
-    console.log( 'Error: ', error )
-})
+// web3.eth.accounts.signTransaction( txObject, privateKey1 )
+// .then( (signedTx) => {
+//     return web3.eth.sendSignedTransaction( signedTx.rawTransaction )
+// })
+// .then( (result) => {
+//     console.log( 'sent signed tx: ', JSON.stringify(result, null, ' '));
+// })
+// .catch( (error) => {
+//     console.log( 'Error: ', error )
+// })
 
 // Query contract
 const abi = config.app.abi
 const contractAddress = config.app.contractAddress
 const contract = new web3.eth.Contract( abi, contractAddress )
 contract.getPastEvents (
-    'AllEvents',
+    'allEvents',
     {
       fromBlock: 0,
       toBlock: 'latest'
     }
 )
-.then( (result) => {
-    console.log( 'All events: ', result )
+.then( (events) => {
+    console.log( 'All events: ', events )
 })
 .catch( (error) => {
     console.log( 'Error: ', error )
