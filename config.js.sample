@@ -1,0 +1,16 @@
+const config = {
+    app: {
+        rpcURL: '<RPC URL with your API key>',
+        accountAddress1: '<public address without 0x>',
+        accountAddress2: '<public address without 0x>',
+        privateKey1: '<private key without 0x>',
+        privateKey2: '<private key without 0x>',
+        contractAddress: '<smart contract address>',
+        abi: <smart contract ABI>
+    },
+    others: {
+        
+    }
+}
+   
+module.exports = config
