@@ -3,10 +3,7 @@ const Web3 = require('web3')
 
 const rpcURL = config.deploy.rpcURL
 const web3 = new Web3( rpcURL )
-const accountAddress1 = config.deploy.accountAddress1
-const accountAddress2 = config.deploy.accountAddress2
 const privateKey1 = '0x' + config.deploy.privateKey1
-const privateKey2 = '0x' + config.deploy.privateKey2
 
 const bytecode = '0x' + config.deploy.bytecode
 const abi = config.deploy.abi
@@ -28,6 +25,7 @@ contract.deploy( txObject )
 })
 .then( (gas) => {
     console.log( encodedTxObject )
+    // sign transaction
     return web3.eth.accounts.signTransaction(
         {
             data: encodedTxObject,
@@ -37,6 +35,7 @@ contract.deploy( txObject )
     )
 })
 .then( (signedTx) => {
+    // send transaction
     console.log( 'signedTx:', signedTx )
     return web3.eth.sendSignedTransaction( signedTx.rawTransaction )
 })
