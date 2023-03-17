@@ -6,7 +6,6 @@ const web3 = new Web3( rpcURL )
 const accountAddress1 = config.app.accountAddress1
 const accountAddress2 = config.app.accountAddress2
 const privateKey1 = '0x' + config.app.privateKey1
-const privateKey2 = '0x' + config.app.privateKey2
 
 // Get Account Balance
 web3.eth.getBalance( accountAddress1 )

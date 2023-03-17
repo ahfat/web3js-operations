@@ -1,9 +1,9 @@
 const config = require('./config');
 const Web3 = require('web3')
 
-const rpcURL = config.deploy.rpcURL
+const rpcURL = config.common.rpcURL
 const web3 = new Web3( rpcURL )
-const privateKey1 = '0x' + config.deploy.privateKey1
+const privateKey1 = '0x' + config.common.privateKey1
 
 const bytecode = '0x' + config.deploy.bytecode
 const abi = config.deploy.abi

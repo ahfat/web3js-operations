@@ -1,19 +1,27 @@
 const config = {
-    app: {
-        rpcURL: '<RPC URL with your API key>',
+    common: {
+        rpcURL: '<HTTP/RPC URL with your API key>',
+        wsURL:  '<Websocker URL with your API key>',
         accountAddress1: '<public address without 0x>',
         accountAddress2: '<public address without 0x>',
         privateKey1: '<private key without 0x>',
-        privateKey2: '<private key without 0x>',
+        privateKey2: '<private key without 0x>'
+    },
+    app: {
         contractAddress: '<smart contract address>',
         abi: <smart contract ABI>
     },
-    others: {
-        rpcURL: '<RPC URL with your API key>',
-        accountAddress1: '<public address without 0x>',
-        privateKey1: '<private key without 0x>',
+    deploy: {
         abi: <smart contract ABI>,
         bytecode: <smart contract bytecode>
+    },
+    functioncall: {
+        contractAddress: '<smart contract address>',
+        abi: <smart contract ABI>
+    },
+    events: {
+        contractAddress: '<smart contract address>',
+        abi: <smart contract ABI>
     }
 }
    
